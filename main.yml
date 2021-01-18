@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Return hello world.
+      command: echo 'hello world'
+      register: hello
+      changed_when: false
+
+    - name: Print the task hello world.
+      debug:
+        msg: "{{ hello.stdout }}"
